@@ -1,3 +1,11 @@
+/* Import Custom Font */
+@font-face {
+    font-family: 'Tomorrow';
+    src: url('fonts/Tomorrow-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* General Reset */
 * {
     margin: 0;
@@ -16,7 +24,60 @@ body {
     align-items: center;
 }
 
-/* Navigation styling */
+
+
+/* Sidebar Styling */
+#menu-toggle {
+    display: none;
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+#sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #1f1f1f;
+    padding-top: 2em;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+#sidebar.active {
+    transform: translateX(0);
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    margin: 1em 0;
+}
+
+#sidebar ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+#sidebar ul li a:hover {
+    color: #00adb5;
+}
+
+/* Top Navigation Bar (Hide on Mobile) */
 nav {
     width: 100%;
     background-color: rgba(31, 31, 31, 0.8);
@@ -24,31 +85,20 @@ nav {
     top: 0;
     z-index: 1000;
     padding: 0.5em 0;
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center; /* Center content in the navbar */
-    align-items: center;
+    backdrop-filter: blur(5px);
 }
 
-/* Navigation Links (Visible by Default on Desktop) */
-.nav-links {
-    display: block;
-}
-
-/* Center-align the links within the navbar */
-.nav-links ul {
+nav ul {
     display: flex;
+    justify-content: center;
     list-style: none;
-    padding-left: 0;
-    margin: 0;
 }
 
-/* Add margin between each link */
-.nav-links ul li {
+nav ul li {
     margin: 0 1em;
 }
 
-.nav-links ul li a {
+nav ul li a {
     color: #e0e0e0;
     text-decoration: none;
     font-size: 1.1em;
@@ -56,56 +106,26 @@ nav {
     transition: color 0.3s;
 }
 
-.nav-links ul li a:hover {
+nav ul li a:hover {
     color: #00adb5;
 }
 
-/* Hide Menu Icon on Desktop */
-.menu-icon {
-    display: none;
-}
-
-/* Mobile-specific Styles */
+/* Mobile View Adjustments */
 @media (max-width: 768px) {
-    /* Show Hamburger Menu Icon on Mobile */
-    .menu-icon {
-        display: block;
-        font-size: 1.5em;
-        color: #e0e0e0;
-        cursor: pointer;
-        padding: 0.5em;
-    }
-
-    /* Hide Navigation Links by Default on Mobile */
-    .nav-links {
+    nav {
         display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: rgba(31, 31, 31, 0.95);
-        padding: 1em 0;
     }
-
-    /* Show Menu When Toggled */
-    .nav-links.show {
+    #menu-toggle {
         display: block;
-    }
-
-    /* Stack Links Vertically on Mobile */
-    .nav-links ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-links ul li {
-        margin: 0.5em 0;
     }
 }
+
+
 
 
 /* Header Styling */
 header {
+    top: 0em;
     position: relative;
     display: flex;
     align-items: center;
@@ -114,26 +134,30 @@ header {
     width: 100%;
     height: 500px;
     color: #e0e0e0;
-
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/BOT.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-
+/*header h1, header h2 {
+   font-family: 'Tomorrow', sans-serif;
+}*/
 
 header h1 {
     font-size: 3.5em;
     color: #00adb5;
 }
+
 header h2 {
     font-size: 3.5em;
     color: #00b561;
 }
+
 header p {
     font-size: 1.2em;
     color: #aaa;
+    /*font-family: 'Tomorrow', sans-serif; */
 }
 
 /* Section Styling */
@@ -143,6 +167,7 @@ section {
     width: 100%;
     margin: 1em auto;
 }
+
 section h2 {
     font-size: 2em;
     color: #00adb5;
@@ -174,10 +199,12 @@ footer {
     text-align: center;
     width: 100%;
 }
+
 footer a {
     color: #00adb5;
     text-decoration: none;
 }
+
 footer p {
     color: #aaa;
 }
@@ -187,6 +214,7 @@ a {
     color: #00adb5;
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: underline;
 }
