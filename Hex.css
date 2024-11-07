@@ -47,15 +47,19 @@ body {
     left: 0;
     height: 100%;
     width: 250px;
-    background-color: #1f1f1f;
+    background-color: rgba(31, 31, 31, 0.8); /* Add transparency */
     padding-top: 2em;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: 1000;
+    backdrop-filter: blur(5px);
+    text-align: center;
 }
+
 
 #sidebar.active {
     transform: translateX(0);
+    display: block; /* Ensures sidebar appears */
 }
 
 #sidebar ul {
@@ -118,6 +122,34 @@ nav ul li a:hover {
     #menu-toggle {
         display: block;
     }
+}
+/* Close button in sidebar */
+#close-btn {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #e0e0e0;
+    cursor: pointer;
+}
+
+/* Overlay styling */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    display: none;
+    z-index: 999; /* Layer just behind sidebar */
+}
+
+/* Show overlay when sidebar is active */
+#sidebar.active + #overlay {
+    display: block;
 }
 
 
