@@ -16,6 +16,57 @@ body {
     align-items: center;
 }
 
+/* Transparent Navigation Bar Styling */
+nav {
+    width: 100%;
+    background-color: rgba(31, 31, 31, 0.8); /* Dark background with 80% transparency */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    padding: 0.5em 0;
+    backdrop-filter: blur(10px); /* Adds a blur effect for a more modern look */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-family: 'Tomorrow', sans-serif;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00adb5;
+}
+
+/* Remove offset for fixed navbar */
+header, section {
+    margin-top: 1.5em;
+    padding-top: 60px; /* Adds internal padding to ensure content isn't hidden behind the navbar */
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+    
+    nav ul li {
+        margin: 0.5em 0;
+    }
+}
+
+
 /* Header Styling */
 header {
     position: relative;
