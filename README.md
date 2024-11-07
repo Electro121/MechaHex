@@ -1,1 +1,1 @@
-It's MechaHex website.
+MechaHex website!
