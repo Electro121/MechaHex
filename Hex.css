@@ -16,28 +16,39 @@ body {
     align-items: center;
 }
 
-/* Transparent Navigation Bar Styling */
+/* Navigation styling */
 nav {
     width: 100%;
-    background-color: rgba(31, 31, 31, 0.8); /* Dark background with 80% transparency */
+    background-color: rgba(31, 31, 31, 0.8);
     position: fixed;
     top: 0;
     z-index: 1000;
     padding: 0.5em 0;
-    backdrop-filter: blur(10px); /* Adds a blur effect for a more modern look */
-}
-
-nav ul {
+    backdrop-filter: blur(10px);
     display: flex;
-    justify-content: center;
-    list-style: none;
+    justify-content: center; /* Center content in the navbar */
+    align-items: center;
 }
 
-nav ul li {
+/* Navigation Links (Visible by Default on Desktop) */
+.nav-links {
+    display: block;
+}
+
+/* Center-align the links within the navbar */
+.nav-links ul {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Add margin between each link */
+.nav-links ul li {
     margin: 0 1em;
 }
 
-nav ul li a {
+.nav-links ul li a {
     color: #e0e0e0;
     text-decoration: none;
     font-size: 1.1em;
@@ -45,23 +56,49 @@ nav ul li a {
     transition: color 0.3s;
 }
 
-nav ul li a:hover {
+.nav-links ul li a:hover {
     color: #00adb5;
 }
 
-/* Remove offset for fixed navbar */
-header, section {
-    margin-top: 1.5em;
-    padding-top: 60px; /* Adds internal padding to ensure content isn't hidden behind the navbar */
+/* Hide Menu Icon on Desktop */
+.menu-icon {
+    display: none;
 }
 
-/* Responsive Navigation */
+/* Mobile-specific Styles */
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
+    /* Show Hamburger Menu Icon on Mobile */
+    .menu-icon {
+        display: block;
+        font-size: 1.5em;
+        color: #e0e0e0;
+        cursor: pointer;
+        padding: 0.5em;
     }
-    
-    nav ul li {
+
+    /* Hide Navigation Links by Default on Mobile */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(31, 31, 31, 0.95);
+        padding: 1em 0;
+    }
+
+    /* Show Menu When Toggled */
+    .nav-links.show {
+        display: block;
+    }
+
+    /* Stack Links Vertically on Mobile */
+    .nav-links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links ul li {
         margin: 0.5em 0;
     }
 }
