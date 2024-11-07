@@ -31,7 +31,7 @@ body {
     display: none;
     position: fixed;
     top: 1em;
-    left: 1em;
+    right: 1em;
     font-size: 1.5em;
     background: none;
     border: none;
@@ -44,7 +44,7 @@ body {
     display: none;
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     height: 100%;
     width: 250px;
     background-color: rgba(31, 31, 31, 0.8); /* Add transparency */
@@ -127,7 +127,7 @@ nav ul li a:hover {
 #close-btn {
     position: absolute;
     top: 1em;
-    right: 1em;
+    left: 1em;
     background: none;
     border: none;
     font-size: 1.5em;
